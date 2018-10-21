@@ -1,2 +1,5 @@
-# python-for-finance
-all codes are in python for finance
+# python
+
+Scikit-learn, Pandas, Statsmodels: Comparison:
+
+https://stats.stackexchange.com/questions/47913/pandas-statsmodel-scikit-learn 
