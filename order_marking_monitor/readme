@@ -1,0 +1,11 @@
+This is how to simulate the securites order marking monitor. Data from exchange to firm are called inbound, from our
+firm to exchange are called outbound. 
+
+Data transmission are in forms of JSON.
+
+Sell commands which decrease outstanding positions do not need to wait for exchange to send back acknowledgements information, 
+but Buy commands need those acknowledgements.
+
+Short selling are prohibited in China.
+
+Beta code are in python, which is not used for algorithmic trading because it's too slow.
