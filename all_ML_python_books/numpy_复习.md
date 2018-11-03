@@ -55,10 +55,25 @@ np.round(stock_day[0:3, 0:4], 4)
 numpy的相关计算:  1. 数据筛选运算; 2. 数据统计运算； 3. 数组间运算
 
 
+# 筛选: 逻辑运算符
+stock_day[:2, :5] > 0.5
+
+# 涨跌幅大于0.5的标记为1，copy之前的数据使得不影响之前的数据
+tmp ＝ stock_day[:2, :5].copy()
+# 涨幅大于0.5的标记为1
+tmp[stock_day[:2, :5] > 0.5] = 1
+tmp
+
+＃ 通用判断函数: numpy中builtin封装好的函数
+np.all()
+np.unique() 去重，生成一个新的array
 
 
+三元运算符where(condition, if_True, if_False), 与python中类似
+np.where(tmp > 0.5, 1, 0)
 
-
-
+多个条件的结合需要np.logical_and, np.logical_or: 
+# 两个并列条件: 0.5<temp<1: 设为1 否则为0
+np.where(np.logical_and[temp>0.5, temp<1], 1, 0)
 
 ```
