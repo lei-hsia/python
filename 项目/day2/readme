@@ -68,3 +68,33 @@ def upload_file():
         f = request.files['the_file']
         f.save('/var/www/uploads/uploaded_file.txt')
        ...
+
+
+******************* day 2 *********************
+2. abort 函数与 errorhandler;
+3. 构建试图函数返回值的两种方式: 
+    a. 元组: 可以返回一个元组,元组必须是 (response, status, headers)的形式，并且至少包含一个元素。
+    status值会覆盖状态代码，headers可以是一个列表或字典，作为额外的消息表头值
+    b. make_response: 
+        resp = make_response()
+        resp.headers["sample"] = "value"
+        resp.status = "404 NOT FOUND"
+4. 使用 jsonify 返回JSON数据
+    import json; 
+    json.dumps(): python普通类型转换为json类型
+    json.loads(): json类型转化为python类型
+    jsonify帮我们将数据直接转换为json字符串，并且设置Content-Type响应头为application/json
+5. redirect:
+    因为redirect重定向到某一个URL/route, 但是知道的是执行某一个功能的视图函数,所以redirect多与url_for()反解析试图函数的URL一起用
+6. 设置和读取cookie: 
+    resp = make_response()
+    resp.set_cookie(key, value = "", max_age = None)
+    resp.delete_cookie(key)
+  e.g.
+    resp.set_cookie("itcast", "python", max_age = 3600)
+    resp.headers["itcast2"] = "python2"
+    resp.headers["Set-Cookie"] = "itcast=python; Expires=Fri, 01-Feb-2019 21:50:35 GMT; Max-Age=3600; Path=/"
+    
+    get_cookie: cookie = request.cookies.get("itcast")
+                return cookie
+    resp.delete_cookie("itcast")
