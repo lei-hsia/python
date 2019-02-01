@@ -98,3 +98,7 @@ def upload_file():
     get_cookie: cookie = request.cookies.get("itcast")
                 return cookie
     resp.delete_cookie("itcast")
+7. 设置和读取session: 
+    a. 为了使用session,  需要设置 secret_key
+    b. 视图函数保存session数据, session用法与dict一样:
+    c. 获取session数据:session.get(), 取法是dict的取法
