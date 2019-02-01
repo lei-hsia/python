@@ -1,2 +1,57 @@
+复习: 
 flask只包含框架核心: 路由和对应的视图函数
 服务器和服务器对应可以执行的代码--> 框架
+
+mkvirtualenv flask_py2
+pip install flask==0.10.1
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+from flask import Flask
+app = Flask(__name__)  # extra初始化参数: static_url_path, static_folder, template_folder
+
+@app.route('/')
+def index():
+  return "hello world"
+  
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+    
+配置参数:
+class MyConfig(object):
+    DEBUG = True
+app.config.from_object(MyConfig)
+或者
+app.config.from_pyfile("yourconfig.cfg")
+
+在视图读取配置参数       from flask import current_app
+app.config.get() 或者  current_app.config.get()
+
+1. 同一个路由装饰多个视图函数
+2. 同一个视图多个路由装饰器
+3. 利用methods限制路由中的访问方式
+4. 使用url_for进行反解析
+
+动态路由: 路由传递的参数默认是string类型处理, django是在路由中写regex提取，flask中用到了转换器，用<>提取，
+<>中参数默认是string类型, 如果定制flask其中有int,float,path三种类型; :之前是类型，之后是参数名；
+如果是要用自定义转换器，写一个类; from werkzeug.routing import BaseConverter; 这个类在初始化方法
+中规定需要有的属性regex: 
+class re_url(BaseConverter):
+    def __init__(self, url_map, *args):
+        super(re_url self).__init__(url_map)
+        self.regex = args[0]
+
+    def to_python(self, value):
+        return value   # /index/<
+        
+    def to_url(self, value):
+       return value   # 对应某一个试图函数中有的url_for(,): 
+                      # url_for()反解析试图函数对应的路由，第一个参数是某一个试图函数的函数名，后面是这个试图函数对应的路由需要传递的参数
+       
+app = Flask(__name__)
+app.url_map.converters["re"] = re_url
+
+@app.route('/user/< re("[a-z]{3}") :id>')  # re("[a-z]{3}")是转换器的名字
+def hello_itcast(id):
+    return 'hello %s' % id
