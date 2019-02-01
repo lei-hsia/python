@@ -55,3 +55,16 @@ app.url_map.converters["re"] = re_url
 @app.route('/user/< re("[a-z]{3}") :id>')  # re("[a-z]{3}")是转换器的名字
 def hello_itcast(id):
     return 'hello %s' % id
+
+获取请求参数: from flask import request
+request: 常用属性 data, form, args, cookies, headers, method, url, files
+
+e.g. 
+from flask import request
+
+@app.route('/upload', methods = ["GET", "POST"]
+def upload_file():
+    if request.method == "POST":
+        f = request.files['the_file']
+        f.save('/var/www/uploads/uploaded_file.txt')
+       ...
