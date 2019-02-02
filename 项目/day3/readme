@@ -1,0 +1,29 @@
+  08. session没有cookie时也可以运行: cookie被禁止，但是让用户每次访问后台的时候带上session_id: e.g. session_id当作参数每次都在访问的
+      时候带上这个参数session_id: e.g. 首先登陆主页("/"),之后登陆login页面:->访问Flask内的视图函数:def login()... 得到访问过的痕迹
+      session_id=1, 之后跳转主页这个时候携带参数: redirect("/?session_id=1)" 更多的是"sid=1"
+      这是session保存在服务器中，但是如果session保存在URL中，关闭浏览器再打开就有问题了: cookie被禁止之后的代价
+  
+  09. 请求上下文&&应用上下文: 
+      request context:     request, session: 程序运行到某个地点所处的环境: 前面用户的request请求或者产生的session会话内容都不同
+      application context: current_app, g:   current_app: 和不同用户的不同request没有关系,但是跟整个程序一开始创建出来的app相关，
+                                                          并不因为每次请求不同得到的结果不同
+                                        g: 处理请求时用于临时存储的对象，每次请求都会重设这个变量
+      from flask import Flask, request: 
+      request被全局导入,多个用户同时访问视图函数会同时操作这个全局变量？
+      不是，因为: request = threadlocal(); request实际上是线程局部变量, 每个线程操作的都是自己的线程局部变量，隔离开来的
+      请求上下文是命名在全局空间的，但是在试图函数中每个人拿到的request对象都是不同的
+      
+  10. 请求钩子: 相当与django中的中间件: 某一个行为触发的时候会有一个连带的效果:触发另一个行为: 
+      通过装饰器实现: 
+      @app.before_first_request        // e.g. 数据库SQLalchemy首先建立链接
+      @app.before_request              // django: process_request()
+      @app.after_request(response)     // django: process_response()
+      @app.teardown_request(response)  // finally
+      
+  11. script扩展使用: pip install Flask-Script: 起到类似django中的manager脚本的使用
+      还是用app装饰器装饰试图函数,只不过再用Manager创建一个管理员类对象，run的时候也是用manager.run()
+      
+  12. 模板变量的使用: flask中的函数是render_templates, django是render;
+        django: render(request, "index.html", {name:"python"}参数用字典) 
+         flask: render_template("index.html", name="python"  赋值形式
+         ** 其中name是模版中的模版变量
