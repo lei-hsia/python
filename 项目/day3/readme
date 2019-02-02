@@ -27,3 +27,4 @@
         django: render(request, "index.html", {name:"python"}参数用字典) 
          flask: render_template("index.html", name="python"  赋值形式
          ** 其中name是模版中的模版变量
+      Rendering is a process of filling placeholders wth actual data
