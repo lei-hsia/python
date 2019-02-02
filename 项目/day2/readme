@@ -105,9 +105,10 @@ def upload_file():
 
     d. 本质上，session是存储在服务器中的，具体来讲是存在服务区后段的数据库中，每一个session相当于一个locker，浏览器要拿出对应的session:
     要用session_id－－－这个浏览器中cookie唯一的标识, 去找存在数据库中的session的locker
-    (浏览器中cookie的session_id对应后端数据库中的session)
+    ******* (浏览器中cookie的session_id对应后端数据库中的session) *******
     e. session可以存在MySQL, redis, 文件，或者程序运行内存中 
     g. session: 现实中后台跨服务器/多台服务器: nginx配置负载均衡使得浏览器访问前后两次去不同的服务器: 第一次访问第一台服务器，
     第一台服务器保存了session；第二次访问的时候因为第二台没有被访问过所以没有session记录，但是实际上是访问过的: 
     解决问题: 配置nginx: 使得同一个地方来的(e.g. IP)访问总是导向同一台服务器，这样就不会有session跨平台的问题了;
-    现在没有这个session跨平台的问题了; 因为session保存的地方独立于程序之外，单独的一个服务器保存下来的
+    现在没有这个********session跨服务器*********的问题了; 
+    因为session保存的地方是单独的一台服务器，单独的一个服务器保存下来的
