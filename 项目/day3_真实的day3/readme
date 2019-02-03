@@ -19,3 +19,8 @@ day3:
     django中用 key-value 的形式配置数据库, flask用类似网址的形式
     
 4. 数据库中每一张表对应的模型类，的父类都是数据库连接对象db中的Model属性
+   类中属性对应表中字段
+
+5. 往表中添加信息: django: Role().save(); 或者 Roles.objects.create();  
+                 flask: role = Role(); db.session.add(role)添加任务, db.session.commit()提交任务
+                                    或者db.session.add_all()
