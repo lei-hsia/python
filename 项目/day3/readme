@@ -28,3 +28,26 @@
          flask: render_template("index.html", name="python"  赋值形式
          ** 其中name是模版中的模版变量
       Rendering is a process of filling placeholders wth actual data
+
+  13. 自定义过滤器: 
+      a. app.add_template_filter(过滤器对应的代码函数名, 模版中使用的过滤器名字)
+      b. 使用装饰器@app.template_filter(模版中用的名字)装饰自定义过滤器函数
+      
+  14. Flask-WTF:
+      如果自己写,需要用 request.form.get() 得到从页面form得到的数据: 
+            if request.method == "POST":
+                username = request.form.get("username")...
+      wtf表单扩展: 表单抽象成类，在试图函数中操作类对象相当于操作表单，类属性相当于表单数据
+      flask中form本来是不带CSRF防护的，但是wtf带: (django中表单提交只要带有请求体都有CSRF防护)
+      生成CSRF token保存在cookie中需要配置SECRET_KEY生成加密令牌(保存在cookie中)
+      from wtf.validators import XXX: XXX都是类，而在用的时候都要用对象
+      提交按钮也有一个表单抽象: wtforms: SubmitField
+      ===> 
+        得到的结果是:
+        1. 模版:在模版中不需要写前端类似的form标签了，只需要写模版变量
+        2. 视图函数: 没有request对象传递所以不用request.form.get(..), 只用操作form对象, form.属性名 得到要的DataField
+        
+        试图函数定义了表单类之后，定义一个register函数作为模版表单对应的试图函数: 能通过GET, POST两种访问方式访问: 
+        GET方式访问: 并没有提交表单，用户需要register.html页面，渲染提供页面
+        POST方式访问: 如果数据验证通过就“success”保存进数据库; 如果不通过还是给出GET渲染的页面, 并给出errmsg
+        
