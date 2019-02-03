@@ -1,1 +1,21 @@
-dfd
+请求上下文: request, session对象: 每次接收的客户端的信息不同，得到的结果也不一样
+应用上下文: current_app: 不同的人开发的app不同：e.g. flask app的路由信息不同, 但是每个人自己的应用程序总是相同的,
+          拿到的总是自己当前的app，app的名字无关，但是总是自己的app     
+  request, session属于全局变量，多线程同时操作会有资源竞争的问题，flask有"局部全局变量"的设计，所以有请求上下文的概念
+
+flask扩展程序: import Flask-Script: 使得支持像django一样的脚本命令; 
+自定义模版过滤器: 过滤器对应的函数传入的参数就是要过滤的左边的数据
+Flask-WTF扩展: 模版中不需要自己写表单的前端信息了, 模版变量替代表单信息; POST访问需要在模版中写 form对象.csrf_token,
+               csrf_token的配置需要一开始写好 SECRET_KEY
+*** form表单中的字段中的值: form.属性名.data属性: 这样才得到字段名对应的值, 否则得到的是字段信息不是字段中的值
+----------------
+day3: 
+1. 控制语句: {% if %}{% endif %}   {% for samp in samples %}{% endfor %}
+2. 宏(macro), 继承(block), 包含(将另一个模版加载到当前模版中: include)都是实现代码重用的功能
+3. SQLAlchemy: 独立于任何数据库之外的，提供高层的ORM和底层对原生数据库的支持; 
+    i. flask-sqlalchemy: 只完成ORM: 类对象--> SQL的转化
+    ii. 把SQL发送给数据库的操作: python3: pymysql: mysql对python的驱动程序:建立连接并来回发送SQL语句
+        flask中: pip install flask-mysqldb
+    django中用 key-value 的形式配置数据库, flask用类似网址的形式
+    
+4. 数据库中每一张表对应的模型类，的父类都是数据库连接对象db中的Model属性
