@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% macro input1() %}
+    <input type="text" name="" value="" size="">
+    {% endmacro %}
+
+    {{  input1() }}
+
+    {% macro input2(name, type="text", value="", size="30") %}
+    <!--标签中用的是从宏定义中传递进来的参数-->
+    <input name = "{{name}}"type="{{type}}" value="{{value}}" size="{{size}}">
+    {% endmacro %}
+
+    {{ input2("itcast") }}
+    {{ input2(name="python", type="button", value="btn") }}
+
+    <h3>from outside html file</h3>
+    {% import "macro_input3.html" as m_input %}
+    {{ m_input.input3("input3") }}
+
+
+</body>
+</html>
