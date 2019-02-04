@@ -1,0 +1,24 @@
+1. Flask-Migrate依赖于另一个扩展Flask-Script: 让flask以脚本的方式管理;
+
+    from flask_migrate import Migrate, MigrateCommand
+              # MigrateCommand:命令: 给manager对象用的
+              # Migrate: 真正执行数据库迁移工作的
+    from flask_script import Shell, Manager
+    
+    app = Flask(__name__)
+    manager = Manager(app)    # 创建flask脚本管理工具对象
+    ...... db = SQLAlchemy(app)
+    
+    migrate = Migrate(app,db)                 # 1st param:Flask实例; 2nd param:Sqlalchemy数据库实例
+    manager.add_command('db',MigrateCommand)  # manager:Flask-Script实例; 这条语句在flask-script中/manager对象中添加一个数据库命令
+    
+    程序再启动的时候通过manager对象启动程序
+    之后就通过脚本/命令行操作数据库而不用写代码: 
+    python author_book.py db init   生成迁移仓库:创建migrations文件夹,初始化
+    python author_book.py db migrate 相当于django中的makemigrations生成迁移文件
+    python author_book.py db upgrade 相当于django中的migrate，真正实现迁移
+    python author_book.py db history: 查看历史记录
+    python author_book.py db downgrade 版本号: 回退
+    
+总结: 步骤: 1. 创建数据库对象; 2. 创建manager对象; 3. 创建迁移文件对象; 4. 向manager管理的app中添加迁移文件脚本命令
+           5. 最后在main函数中用 manager.run()的方式而不是app.run()的方式运行程序; 之后在terminal中就能用命令行的方式了
