@@ -22,3 +22,29 @@
     
 总结: 步骤: 1. 创建数据库对象; 2. 创建manager对象; 3. 创建迁移文件对象; 4. 向manager管理的app中添加迁移文件脚本命令
            5. 最后在main函数中用 manager.run()的方式而不是app.run()的方式运行程序; 之后在terminal中就能用命令行的方式了
+
+2. Flask-Mail: from flask_mail import Mail, Message
+
+3. flask中的app = Flask(__name__)对应的是django中的django admin startproject的project;
+    flask中的蓝图对应django中的app: 小模块的划分:
+    django中小模块的划分: 是把一类逻辑封装到一个app中,: 对应flask中的做法: 如果是物理上分开成几个不同的file,那么在各个
+    file中要导入另外的模块: 
+    如果都写在最上面会有"循环导入"的问题: 
+    解决办法1: 因为是类似多线程中的死锁问题: 让一方让步: 一个file中的导入写在函数中, 这样就可以延迟导入没有死锁的问题
+    更好的解决办法: 主程序中正常导入, 另外的file中不用@app.route()直接装饰函数,因为这些外部file中不能先导入app不能
+    用app, 所以只是写试图函数; 而在主file中把之前其他file中的@后面的装饰器当函数使用,函数调用直接写(),括号里面装外部
+    要导入的试图函数的函数名: 这样一来外部的普通函数就变成了试图函数了: ***需要深刻理解装饰器本质上还是函数这一点***
+    
+    ***
+    装饰器不仅仅是在函数定义的时候使用，也可以函数定义完成之后后补上
+    ***
+    def itcast(func):           @itcast   <=> itcast(get_goods)
+        def inner():            def get_goods():
+            pass                    return "xxx"
+        return inner                                    那么itcast(get_goods)放在后面也可以
+ 
+ ^^^^^ 用装饰器解决了不同逻辑的模块分割问题: 只看外部的试图函数,根本不知道对应的路径是什么,还是要看主函数中
+ >>>>> 蓝图: 完全隔离不同逻辑块的 试图函数和路径
+ 
+ 4. 蓝图: 1.创建蓝图对象; 2. 注册蓝图路由; 3. 在程序实例中 注册蓝图 app.register_blueprint(obj_BP, url_prefix="")
+ 
