@@ -61,5 +61,8 @@
    和其所包含的试图函数
    
 6. 蓝图里模版目录的处理: Flask(__name__)和Blueprint(xxx,__name__,yyy)中的
-    __name__都是为了找
-  
+    __name__ 都是根目录,
+    区别: app = Flask(__name__)中, 默认的要寻找的模版目录文件名就叫templates, 静态目录叫static,
+    但是 obj_BP=Blueprint("BP名", __name__)中没有这种默认, 需要指定模版目录和静态目录文件夹名叫什么: 
+    ==> obj_BP=Blueprint("名",__name__,template_folder="templates",static_folder="static"): 
+    会从当前蓝图所在的目录逐级往上找, 渲染页面返回的是最高层级目录对应的模版
