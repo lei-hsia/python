@@ -10,7 +10,8 @@ def index():
 
 @app.route("/person")
 def get_person():
-    '''get person info in form of json'''
+    '''get person info in form of json''' 
+    # jsonify()参数是一个dict,字典中包含了需要的信息
     p = {
         "name": "zhangsan",
         "age" : 24
