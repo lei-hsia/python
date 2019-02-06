@@ -10,3 +10,5 @@ Flask项目资料: captcha生成图片验证码;
 对SEO优化的支持: 
             前后端不分离的时候: 友好，因为爬虫访问网址就是对应的后端试图:带了响应和页面应该携带的数据;
             前后端分离: 不友好，因为此时爬虫爬到的页面并没有携带数据: 数据要从后端获取，前端发送ajax请求
+
+from flask_wtf.csrf import CSRFProtect: CSRFProtect类导入flask应用程序之后, 即使没有表单也能够实现csrf防护机制
