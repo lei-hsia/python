@@ -1,0 +1,16 @@
+Generic single-database configuration.
+
+flask本来没有migrate同步数据库的迁移操作, 用Flask-Migrate进行扩展之后可以用脚本的形式进行数据库的同步而不用code
+
+flask: migrate == django: makemigrations, 
+flask: upgrade == django: migrate,
+flask: downgrade
+flask: history
+
+flask中的数据库命令: e.g.
+
+python author_book.py db init
+python author_book.py db migrate
+python author_book.py db upgrade
+python author_book.py db hostory
+python author_book.py db downgrade
