@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        {{ form.csrf_token }}
+        {{ form.author_name.label }}
+        {{ form.author_name }}
+        {{ form.book_name.label }}
+        {{ form.book_name }}
+        {{ form.submit }}
+    </form>
+
+    <!--各项li标签对应的所有的item都是放在ul/ol标签下的-->
+    <ul>
+        {% for author in authors %}
+        <li>
+            作者: {{ author.name }}
+            <ul>
+                {% for book in author.books %}
+                <li>书籍: {{ book.name }}</li><a href="{{ url_for('delete_book', id=book.id) }}">删除</a>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
