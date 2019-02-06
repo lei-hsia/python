@@ -1,0 +1,4 @@
+127.0.0.1 - - [06/Feb/2019:23:29:41 +0800] "GET / HTTP/1.1" 200 19 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+
+
+是nginx部署之后负载均衡请求的info信息
