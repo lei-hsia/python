@@ -17,3 +17,5 @@ from flask_wtf.csrf import CSRFProtect: CSRFProtect类导入flask应用程序之
 包含: 1. 数据库; 2. redis; 3. csrf; 4. session; 5.日志;  
 flask默认的session是保存在cookie中的, 但是没有意义: 用扩展包flask_session中的Session类
 Session(app): 把session保存到redis中, 因为大量读取, 所以放在文件或者mysql都不好:放在redis中
+
+6'51''
