@@ -12,3 +12,8 @@ Flask项目资料: captcha生成图片验证码;
             前后端分离: 不友好，因为此时爬虫爬到的页面并没有携带数据: 数据要从后端获取，前端发送ajax请求
 
 from flask_wtf.csrf import CSRFProtect: CSRFProtect类导入flask应用程序之后, 即使没有表单也能够实现csrf防护机制
+
+配置文件: 
+包含: 1. 数据库; 2. redis; 3. csrf; 4. session; 5.日志;  
+flask默认的session是保存在cookie中的, 但是没有意义: 用扩展包flask_session中的Session类
+Session(app): 把session保存到redis中, 因为大量读取, 所以放在文件或者mysql都不好:放在redis中
