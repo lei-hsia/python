@@ -1,3 +1,4 @@
+**项目部署: nginx+gunicorn+flask**
 1. Flask-Migrate依赖于另一个扩展Flask-Script: 让flask以脚本的方式管理;
 
     from flask_migrate import Migrate, MigrateCommand
