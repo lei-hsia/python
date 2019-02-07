@@ -18,4 +18,7 @@ from flask_wtf.csrf import CSRFProtect: CSRFProtect类导入flask应用程序之
 flask默认的session是保存在cookie中的, 但是没有意义: 用扩展包flask_session中的Session类
 Session(app): 把session保存到redis中, 因为大量读取, 所以放在文件或者mysql都不好:放在redis中
 
-6'51''
+蓝图使用3步的复习: 
+1. 创建蓝图对象
+2. 创建蓝图路由
+3. 整个程序app中注册蓝图
