@@ -1,0 +1,15 @@
+WARNING _internal.py: 87  * Debugger is active!
+INFO _internal.py: 87  * Debugger PIN: 111-324-653
+INFO _internal.py: 87  * Detected change in '/home/python/flask/ihome_python_02/ihome/api_v1_0/index.py', reloading
+WARNING _internal.py: 87  * Debugger is active!
+INFO _internal.py: 87  * Debugger PIN: 111-324-653
+INFO _internal.py: 87  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO _internal.py: 87  * Restarting with stat
+WARNING _internal.py: 87  * Debugger is active!
+INFO _internal.py: 87  * Debugger PIN: 111-324-653
+ERROR index.py: 15 ERROR MSG
+WARNING index.py: 16 WARN MSG
+INFO index.py: 17 INFO MSG
+DEBUG index.py: 18 DEBUG MSG
+INFO _internal.py: 87 127.0.0.1 - - [08/Feb/2019 02:20:23] "GET /api/v1_0/index HTTP/1.1" 200 -
+---
