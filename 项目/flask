@@ -1,1 +1,2 @@
-flask
+1. 从flask接收到request中获取data:
+  https://stackoverflow.com/questions/10434599/how-to-get-data-received-in-flask-request
