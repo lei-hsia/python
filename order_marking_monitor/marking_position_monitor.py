@@ -29,10 +29,11 @@ class MarkingPositionMonitor:
         self.company_dict = {}
         self.order_dict = {}
 
-    # json.loads(JSON-object): 把JSON字符串反序列化为Python对象
-    # json.dumps(python_obj) : 把Python对象序列化为JSON字符串
-    
+    # on_event: 接收作为字符串过来的JSON格式的市场event,返回当前的marking position
     def on_event(self, message):
+        
+        # json.loads(JSON-object): 把JSON字符串反序列化为Python对象
+        # json.dumps(python_obj) : 把Python对象序列化为JSON字符串
         m_dict = json.loads(message)
 
         if m_dict["type"] == "NEW":
