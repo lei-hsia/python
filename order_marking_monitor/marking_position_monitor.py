@@ -2,6 +2,8 @@ import json
 import copy
 from collections import defaultdict
 
+# 创建两个对象,i.e. 两个类; 一个是company对象作为KV对的key, 另一个是Monitor对象, 就是这个marking-monitor的实体;
+
 # Implement the class below, keeping the constructor's signature unchanged; it should take no arguments.
 class Company:
     def __init__(self, name):
@@ -27,6 +29,9 @@ class MarkingPositionMonitor:
         self.company_dict = {}
         self.order_dict = {}
 
+    # json.loads(JSON-object): 把JSON字符串反序列化为Python对象
+    # json.dumps(python_obj) : 把Python对象序列化为JSON字符串
+    
     def on_event(self, message):
         m_dict = json.loads(message)
 
