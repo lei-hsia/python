@@ -1,4 +1,4 @@
-[SQLite tutorial](https://www.sqlitetutorial.net/) ✅
+[SQLite tutorial](https://www.sqlitetutorial.net/) ✅(Done)
 
 Not covered: 
 
