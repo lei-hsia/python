@@ -43,3 +43,4 @@ ORDER BY FirstName, LastName;
 ```
 
 ## too many info. The rest refers back to [SQLite tutorial](https://www.sqlitetutorial.net/)
+
