@@ -22,6 +22,10 @@ table ```table2``` to form the result set.
 If the first table has ```N``` rows, the 2nd table has ```M``` rows, then the final 
 result will have ```N*M``` rows.
 
+> where group by with having order by 
+
+### UNION, EXCEPT, INTERSECT: all are query result sets operations
+
 ### UNION:
 
 ````query_1 UNION [ALL] query_2 [ALL] query_3 ... ; ```
