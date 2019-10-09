@@ -7,6 +7,7 @@ Answer: Because you just drag the file directly from Mac.
 This repository is Private in Github, which means it's embedded in original Mac path. To duplicate this repo, ```git clone```
 from Ubuntu host. To do this, add the ```id_rsa.pub``` into Github to make Github recognize this Ubuntu host.
 
+为什么用```pony```: [pony](https://ponyorm-cn.readthedocs.io/zh_CN/draft/0-What-is-Pony-ORM/), 可以看出Pony实际上是一种方便的ORM, 比Django和SQLAlchemy都方便
 
 Later: 
 
