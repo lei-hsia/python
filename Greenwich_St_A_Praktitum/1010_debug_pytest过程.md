@@ -201,7 +201,3 @@ pip install pony
 ```pyodbc```类似java的```jdbc```, ```pony```和```astor```都是ORM的包
 
 至此， pytest终于能run了
-
-
-
-
