@@ -24,4 +24,4 @@ ncdu: **BEST** for checking disk usage in Linux/Mac;
 
 1. Mac: ```brew install ncdu```; 
 
-### ncdu, 你值得拥有
+### ncdu, 世界最高のディスク使用量視覚化ツール, 你值得拥有
