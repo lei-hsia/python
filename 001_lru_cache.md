@@ -40,3 +40,4 @@ def fib(n):
 >>> fib.cache_info()
 CacheInfo(hits=28, misses=16, maxsize=None, currsize=16)
 ```
+To help measure the effectiveness of the cache and tune the maxsize parameter, the wrapped function is instrumented with a ```cache_info()``` function that returns a named tuple showing <i>hits, misses, maxsize and currsize</i>. In a multi-threaded environment, the hits and misses are approximate.
