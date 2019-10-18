@@ -8,7 +8,16 @@ Q: What if there are commas inside data cell ?
 
 A: Add this option in ```COPY```: ```FIELD_OPTIONALLY_ENCLOSED_BY = '<character>'```
 
-#### All options in ```COPY```: 
+#### ```COPY``` operation options: 
+```
+COPY INTO { internalStage | externalStage | externalLocation }
+     FROM { [<namespace>.]<table_name> | ( <query> ) }
+[ FILE_FORMAT = ( { FORMAT_NAME = '[<namespace>.]<file_format_name>' |
+                    TYPE = { CSV | JSON | PARQUET } [ formatTypeOptions ] } ) ]
+[ copyOptions ]
+[ HEADER ]
+```
+
 ```
 formatTypeOptions ::=
 -- If FILE_FORMAT = ( TYPE = CSV ... )
