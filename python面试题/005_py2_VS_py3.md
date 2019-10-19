@@ -14,6 +14,8 @@ Python3使用range创建迭代器对象，移除了xrange: 就只是创建迭代
 3. operations: ```range```返回值是list, 所以所有list能用的ops都可以用在range返回值上; ```xrange```返回生成器对象，所以不仅只是遍历，还是只遍历一次，所以跟list相关的操作都不能用在xrange上面;
 4. speed: ```xrange > range```;
 
+python3 中的```range([start], stop)```: 从start开始，到stop，但是不包含stop
+
 #### 编码
 
 1. python2: 
