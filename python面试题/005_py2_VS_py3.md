@@ -44,21 +44,8 @@ print("")
 
 ### xrange
 
-Python2使用xrange创建一个迭代器对席那个，使用range创建一个list数组
+Python2使用xrange创建一个迭代器对象，使用range创建一个list数组
 
-Python3使用range创建迭代器对象，移除了xrange
-
-
-
-
-
-
-
-
-
-
-
-
-
+Python3使用range创建迭代器对象，移除了xrange: 就只是创建迭代器对象了
 
 
