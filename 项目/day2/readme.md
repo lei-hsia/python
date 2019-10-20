@@ -101,6 +101,7 @@ def upload_file():
 5. redirect:
     因为redirect重定向到某一个URL/route, 但是知道的是执行某一个功能的视图函数,所以redirect多与url_for()反解析试图函数的URL一起用
 6. 设置和读取cookie: 
+```
     resp = make_response()
     resp.set_cookie(key, value = "", max_age = None)
     resp.delete_cookie(key)
@@ -112,6 +113,8 @@ def upload_file():
     get_cookie: cookie = request.cookies.get("itcast")
                 return cookie
     resp.delete_cookie("itcast")
+```
+
 7. 设置和读取session: 
 
     - 为了使用session,  需要设置 secret_key
