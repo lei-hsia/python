@@ -12,8 +12,9 @@ def jobScheduling(self, startTime, endTime, profit):
 ```
 
 #### 用法: 
-1. bisect.bisect_left(a, x, lo=0, hi=len(a)), 或者(等价于2):
-2. bisect.bisect(a, x, lo=0, hi=len(a)) 
+1. ```bisect.bisect_left(a, x, lo=0, hi=len(a))```, a中找x; **If x is already present in a, the insertion point will be before (to the left of) any existing entries**: 返回index是存在的entry的前面一位;
+
+2. ```bisect.bisect(a, x, lo=0, hi=len(a)) ```: **returns an insertion point which comes after (to the right of) any existing entries of x in a**, 这个返回的是entry的后面一位
 
 不过最上面的例子， lee215是: 
 
