@@ -7,6 +7,7 @@
 ```
 
 2. **Key functions**: 
+
 basic: 
 ```
 >>> sorted("This is a test string from Andrew".split(), key=str.lower)
@@ -23,7 +24,14 @@ A common pattern is to sort complex objects using some of the object's indices a
 >>> sorted(student_tuples, key=lambda student: student[2])   # sort by age
 [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 ```
-其中, ```lambda```对应指代前面的iterable.
+其中, ```lambda```对应指代前面的iterable; 同样的道理: 
+
+LC 1235. Maximum Profit in Job Scheduling:
+```
+jobs = sorted(zip(startTime, endTime, profit), key=lambda v: v[1]) 
+```
+```v```代指前面zip之后得到的iterable
+
 
 The same technique works for objects with named attributes. e.g.
 ```
