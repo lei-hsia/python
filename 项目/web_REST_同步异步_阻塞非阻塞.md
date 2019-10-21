@@ -1,3 +1,9 @@
+同步异步: 是一种过程/机制/行为方式;
+阻塞非阻塞: 是一种状态;
+
+详情: [怎样理解阻塞非阻塞与同步异步的区别](https://www.zhihu.com/question/19732473)
+
+---
 REST web services: synchronous or asynchrous?
 
 实际上根本就没有关系: REST是一个标准，规范化HTTP call的过程； 而同步异步是请求资源的client的行为。
