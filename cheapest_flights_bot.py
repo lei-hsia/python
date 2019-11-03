@@ -1,3 +1,10 @@
+######################
+#
+#   Created by Lei Xia.
+#   Copyright under LEI. Daiichi Co. LTD.
+#
+#
+######################
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
